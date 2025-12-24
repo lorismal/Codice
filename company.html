@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LetsGrow! - Piattaforma Revenue Sharing</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-gray-100 antialiased flex flex-col min-h-screen">
+
+    <!-- HEADER / NAVIGAZIONE SUPERIORE -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="index.html" class="flex-shrink-0 flex items-center cursor-pointer">
+                    <span class="text-2xl font-bold text-blue-600">Lets<span class="text-gray-900">Grow!</span></span>
+                </a>
+
+                <!-- Navigazione Centrale -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" id="nav-home"
+                        class="nav-link text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">
+                        Home
+                    </a>
+                    <a href="investor.html" id="nav-investi"
+                        class="nav-link text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">
+                        Investi!
+                    </a>
+                    <a href="investor.html" id="nav-portfolio"
+                        class="nav-link text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">
+                        Il tuo Portfolio
+                    </a>
+                </div>
+
+                <!-- Area Personale / Destra -->
+                <div class="flex items-center space-x-4">
+                    <button id="nav-personale" onclick="showView('personale-view')"
+                        class="flex items-center space-x-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+                        <div
+                            class="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-xs shadow-sm">
+                            MR
+                        </div>
+                        <span class="hidden sm:inline">Mario Rossi</span>
+                    </button>
+                    <!-- Icona Impostazioni -->
+                    <button onclick="alert('Apertura impostazioni...')"
+                        class="text-gray-400 hover:text-gray-600 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenuto Principale -->
+    <main class="flex-grow">
+
+        <!-- Vista: Home -->
+        <div id="home-view" class="view-content">
+            <div class="bg-white overflow-hidden">
+
+                <!-- Sezione Hero: Testo e CTA (Full Width) -->
+                <div class="max-w-7xl mx-auto pt-10 pb-12 px-4 sm:pt-16 sm:px-6 md:pt-20 lg:pt-28 lg:px-8 text-center">
+                    <main>
+                        <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                            <span class="block xl:inline">Connettere Piccoli</span>
+                            <span class="block text-blue-600 xl:inline">Investitori con Grandi Idee.</span>
+                        </h1>
+                        <p
+                            class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                            La piattaforma di revenue sharing che ti permette di finanziare le PMI italiane in modo
+                            semplice e trasparente.
+                        </p>
+                        <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
+                            <div class="rounded-md shadow">
+                                <button onclick="showView('investi-view')"
+                                    class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10">
+                                    Inizia a Investire
+                                </button>
+                            </div>
+                            <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+                                <button onclick="showView('azienda-view')"
+                                    class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10">
+                                    Cerca Fondi
+                                </button>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+
+                <!-- Sezione Metriche Live (SOTTO) -->
+                <div class="bg-gray-800 bg-gradient-to-br from-gray-900 to-gray-700 shadow-inner">
+                    <div
+                        class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+                        <div class="text-center lg:text-left mb-8 lg:mb-0">
+                            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                                <span class="block text-blue-300">Metriche Live</span>
+                            </h2>
+                            <p class="mt-3 text-xl text-gray-300">
+                                La crescita della community in tempo reale.
+                            </p>
+                        </div>
+                        <div
+                            class="mt-8 flex flex-col sm:flex-row justify-center gap-6 lg:mt-0 lg:flex-shrink-0 w-full lg:w-auto">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full">
+                                <div
+                                    class="text-center bg-gray-800/50 p-4 rounded-xl shadow-lg border border-gray-700/50">
+                                    <span class="text-3xl font-extrabold text-blue-400 count-up"
+                                        data-value="1250">0</span>
+                                    <span class="block text-sm mt-1 text-gray-300">Investitori</span>
+                                </div>
+                                <div
+                                    class="text-center bg-gray-800/50 p-4 rounded-xl shadow-lg border border-gray-700/50">
+                                    <span class="text-3xl font-extrabold text-blue-400 count-up"
+                                        data-value="315">0</span>
+                                    <span class="block text-sm mt-1 text-gray-300">Aziende</span>
+                                </div>
+                                <div
+                                    class="text-center bg-gray-800/50 p-4 rounded-xl shadow-lg border border-gray-700/50">
+                                    <span class="text-3xl font-extrabold text-green-400 count-up"
+                                        data-value="8450000">0</span>
+                                    <span class="block text-sm mt-1 text-gray-300">€ Investiti</span>
+                                </div>
+                                <div
+                                    class="text-center bg-gray-800/50 p-4 rounded-xl shadow-lg border border-gray-700/50">
+                                    <span class="text-3xl font-extrabold text-green-400 count-up"
+                                        data-value="1230000">0</span>
+                                    <span class="block text-sm mt-1 text-gray-300">€ Distribuiti</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEZIONE HIGHLIGHTS -->
+                <div class="bg-white py-12 overflow-hidden border-t border-gray-100">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+                        <h2 class="text-3xl font-bold text-gray-900 text-center">Highlights della Piattaforma</h2>
+                        <p class="text-center text-gray-500 mt-2">Il meglio della nostra community in movimento.</p>
+                    </div>
+
+                    <!-- Riga 1: Top Performers (Scroll Sinistra) -->
+                    <div class="mb-10">
+                        <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider px-8 mb-4">⚡️ Aziende
+                            Top ROI</h3>
+                        <div class="relative flex overflow-x-hidden group">
+                            <div class="py-2 animate-marquee whitespace-nowrap flex gap-6">
+                                <span
+                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">🚀
+                                    TechSoluzioni: +18% ROI</span>
+                                <span
+                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">🍕
+                                    GustoArtigiano: +12% ROI</span>
+                                <span
+                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">☀️
+                                    SolarWave: +22% ROI</span>
+                                <span
+                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">👗
+                                    Urban Style: +15% ROI</span>
+                                <span
+                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">🏥
+                                    BioMed: +14% ROI</span>
+                                <!-- Duplicati -->
+                                <span
+                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">🚀
+                                    TechSoluzioni: +18% ROI</span>
+                                <span
+                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">🍕
+                                    GustoArtigiano: +12% ROI</span>
+                                <span
+                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">☀️
+                                    SolarWave: +22% ROI</span>
+                                <span
+                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">👗
+                                    Urban Style: +15% ROI</span>
+                                <span
+                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">🏥
+                                    BioMed: +14% ROI</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Riga 2: Blog News (Scroll Destra) -->
+                    <div class="mb-10">
+                        <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider px-8 mb-4 text-right">📰
+                            Dal Blog</h3>
+                        <div class="relative flex overflow-x-hidden group">
+                            <div class="py-2 animate-marquee-reverse whitespace-nowrap flex gap-6">
+                                <span
+                                    class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Guida
+                                    al Revenue Sharing 2025</span>
+                                <span
+                                    class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Perché
+                                    investire nel GreenTech?</span>
+                                <span
+                                    class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Intervista
+                                    al CEO di TechSoluzioni</span>
+                                <span
+                                    class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Diversificare:
+                                    Strategie Vincenti</span>
+                                <!-- Duplicati -->
+                                <span
+                                    class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Guida
+                                    al Revenue Sharing 2025</span>
+                                <span
+                                    class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Perché
+                                    investire nel GreenTech?</span>
+                                <span
+                                    class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Intervista
+                                    al CEO di TechSoluzioni</span>
+                                <span
+                                    class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Diversificare:
+                                    Strategie Vincenti</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Riga 3: Dicono di Noi (Scroll Lento) -->
+                    <div>
+                        <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider px-8 mb-4">💬 Dicono di
+                            Noi</h3>
+                        <div class="relative flex overflow-x-hidden group">
+                            <div class="py-2 animate-marquee-slow whitespace-nowrap flex gap-6">
+                                <div
+                                    class="inline-flex items-center px-6 py-3 bg-gray-50 rounded-lg border border-gray-100 shadow-sm max-w-md">
+                                    <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
+                                    <span class="text-gray-700 italic text-sm">"Rendimenti costanti e trasparenti." -
+                                        Marco R.</span>
+                                </div>
+                                <div
+                                    class="inline-flex items-center px-6 py-3 bg-gray-50 rounded-lg border border-gray-100 shadow-sm max-w-md">
+                                    <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
+                                    <span class="text-gray-700 italic text-sm">"Finalmente posso investire nella mia
+                                        città." - Luca B.</span>
+                                </div>
+                                <div
+                                    class="inline-flex items-center px-6 py-3 bg-gray-50 rounded-lg border border-gray-100 shadow-sm max-w-md">
+                                    <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
+                                    <span class="text-gray-700 italic text-sm">"Ottima piattaforma per le PMI." - Giulia
+                                        V.</span>
+                                </div>
+                                <div
+                                    class="inline-flex items-center px-6 py-3 bg-gray-50 rounded-lg border border-gray-100 shadow-sm max-w-md">
+                                    <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
+                                    <span class="text-gray-700 italic text-sm">"Assistenza clienti impeccabile." - Sara
+                                        T.</span>
+                                </div>
+                                <!-- Duplicati -->
+                                <div
+                                    class="inline-flex items-center px-6 py-3 bg-gray-50 rounded-lg border border-gray-100 shadow-sm max-w-md">
+                                    <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
+                                    <span class="text-gray-700 italic text-sm">"Rendimenti costanti e trasparenti." -
+                                        Marco R.</span>
+                                </div>
+                                <div
+                                    class="inline-flex items-center px-6 py-3 bg-gray-50 rounded-lg border border-gray-100 shadow-sm max-w-md">
+                                    <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
+                                    <span class="text-gray-700 italic text-sm">"Finalmente posso investire nella mia
+                                        città." - Luca B.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Vista: Investi! (Marketplace ESPANSO) -->
+        <div id="investi-view" class="view-content hidden">
+            <!-- ... Content as before ... -->
+            <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+                <header class="mb-8 text-center">
+                    <h1 class="text-4xl font-bold leading-tight text-gray-900">Investi!</h1>
+                    <p class="mt-2 text-xl text-gray-600">Sfoglia le migliori opportunità di investimento selezionate
+                        per te.</p>
+                </header>
+
+                <div
+                    class="mb-8 p-4 bg-white rounded-xl shadow-md flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
+                    <div class="flex items-center space-x-4 flex-grow md:max-w-md">
+                        <span class="font-medium text-gray-700">Cerca:</span>
+                        <input type="text" id="search-input" onkeyup="filterCompanies()"
+                            placeholder="Cerca azienda o parola chiave..."
+                            class="form-input block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-gray-50 p-2">
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <span class="font-medium text-gray-700">Settore:</span>
+                        <select id="category-filter" onchange="filterCompanies()"
+                            class="form-select block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-gray-50 p-2 cursor-pointer">
+                            <option value="all">Tutti i Settori</option>
+                            <option value="tech">Tech & SaaS</option>
+                            <option value="green">Green & Energy</option>
+                            <option value="food">Food & Beverage</option>
+                            <option value="med">MedTech & Salute</option>
+                            <option value="fashion">Fashion & Retail</option>
+                            <option value="servizi">Servizi & Logistica</option>
+                            <option value="ai">AI & Robotics</option>
+                            <option value="agri">AgriTech</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <span class="font-medium text-gray-700">Ordina per:</span>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="sortCompanies('affinity')" id="btn-sort-affinity"
+                                class="sort-btn active px-3 py-1 bg-blue-600 text-white rounded-full text-sm font-medium shadow-sm hover:bg-blue-700 transition">Più
+                                Affini</button>
+                            <button onclick="sortCompanies('score')" id="btn-sort-score"
+                                class="sort-btn px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition">Punteggio</button>
+                            <button onclick="sortCompanies('revenue')" id="btn-sort-revenue"
+                                class="sort-btn px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition">Rendimento</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="companies-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Cards from previous turn (unchanged) -->
+                    <div class="company-card bg-white shadow-lg rounded-xl overflow-hidden transition-all hover:shadow-xl border-l-4 border-yellow-500 transform hover:-translate-y-1 flex flex-col justify-between"
+                        data-category="green" data-affinity="95" data-score="88" data-revenue="7">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <h2 class="text-xl font-bold text-gray-900">SolarWave Energy</h2><span
+                                    class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-semibold">GreenTech</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Pannelli solari flessibili di nuova generazione per
+                                l'edilizia urbana.</p>
+                            <div class="grid grid-cols-2 gap-2 text-sm text-center">
+                                <div class="bg-gray-50 p-2 rounded"><span
+                                        class="block text-gray-500 text-xs">Affinità</span><span
+                                        class="font-bold text-blue-600">95/100</span></div>
+                                <div class="bg-gray-50 p-2 rounded"><span
+                                        class="block text-gray-500 text-xs">Ricavi</span><span
+                                        class="font-bold text-green-600">7%</span></div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-between items-center">
+                            <span class="text-xs text-gray-500">Target: € 75.000</span><button
+                                onclick="openCompanyDetails('SolarWave Energy', 'IT1122334455', '2024-01-15', 'Bologna (BO)', '€ 10.000,00', 'Attiva')"
+                                class="text-blue-600 hover:text-blue-800 font-medium text-sm">Dettagli &rarr;</button>
+                        </div>
+                    </div>
+                    <div class="company-card bg-white shadow-lg rounded-xl overflow-hidden transition-all hover:shadow-xl border-l-4 border-indigo-500 transform hover:-translate-y-1 flex flex-col justify-between"
+                        data-category="med" data-affinity="89" data-score="92" data-revenue="5.5">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <h2 class="text-xl font-bold text-gray-900">BioMed Tech</h2><span
+                                    class="px-2 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs font-semibold">MedTech</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Dispositivi indossabili per il monitoraggio remoto dei
+                                pazienti anziani.</p>
+                            <div class="grid grid-cols-2 gap-2 text-sm text-center">
+                                <div class="bg-gray-50 p-2 rounded"><span
+                                        class="block text-gray-500 text-xs">Affinità</span><span
+                                        class="font-bold text-blue-600">89/100</span></div>
+                                <div class="bg-gray-50 p-2 rounded"><span
+                                        class="block text-gray-500 text-xs">Ricavi</span><span
+                                        class="font-bold text-green-600">5.5%</span></div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-between items-center">
+                            <span class="text-xs text-gray-500">Target: € 120.000</span><button
+                                onclick="openCompanyDetails('BioMed Tech', 'IT5566778899', '2023-08-10', 'Torino (TO)', '€ 15.000,00', 'Attiva')"
+                                class="text-blue-600 hover:text-blue-800 font-medium text-sm">Dettagli &rarr;</button>
+                        </div>
+                    </div>
+                    <div class="company-card bg-white shadow-lg rounded-xl overflow-hidden transition-all hover:shadow-xl border-l-4 border-green-500 transform hover:-translate-y-1 flex flex-col justify-between"
+                        data-category="food" data-affinity="75" data-score="80" data-revenue="8.2">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <h2 class="text-xl font-bold text-gray-900">Gusto & Tradizione</h2><span
+                                    class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">Food</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Esportazione di prodotti tipici siciliani. Rete di
+                                piccoli produttori bio.</p>
+                            <div class="grid grid-cols-2 gap-2 text-sm text-center">
+                                <div class="bg-gray-50 p-2 rounded"><span
+                                        class="block text-gray-500 text-xs">Affinità</span><span
+                                        class="font-bold text-blue-600">75/100</span></div>
+                                <div class="bg-gray-50 p-2 rounded"><span
+                                        class="block text-gray-500 text-xs">Ricavi</span><span
+                                        class="font-bold text-green-600">8.2%</span></div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-between items-center">
+                            <span class="text-xs text-gray-500">Target: € 45.000</span><button
+                                onclick="openCompanyDetails('Gusto & Tradizione', 'IT9988776655', '2021-02-14', 'Palermo (PA)', '€ 25.000,00', 'Attiva')"
+                                class="text-blue-600 hover:text-blue-800 font-medium text-sm">Dettagli &rarr;</button>
+                        </div>
+                    </div>
+                    <div class="company-card bg-white shadow-lg rounded-xl overflow-hidden transition-all hover:shadow-xl border-l-4 border-pink-500 transform hover:-translate-y-1 flex flex-col justify-between"
+                        data-category="fashion" data-affinity="60" data-score="85" data-revenue="4.5">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <h2 class="text-xl font-bold text-gray-900">Urban Style</h2><span
+                                    class="px-2 py-1 bg-pink-100 text-pink-800 rounded-full text-xs font-semibold">Fashion</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Brand di streetwear sostenibile realizzato con
+                                materiali riciclati.</p>
+                            <div class="grid grid-cols-2 gap-2 text-sm text-center">
+                                <div class="bg-gray-50 p-2 rounded"><span
+                                        class="block text-gray-500 text-xs">Affinità</span><span
+                                        class="font-bold text-blue-600">60/100</span></div>
+                                <div class="bg-gray-50 p-2 rounded"><span
+                                        class="block text-gray-500 text-xs">Ricavi</span><span
+                                        class="font-bold text-green-600">4.5%</span></div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-between items-center">
+                            <span class="text-xs text-gray-500">Target: € 30.000</span><button
+                                onclick="openCompanyDetails('Urban Style', 'IT4455667788', '2022-11-01', 'Milano (MI)', '€ 50.000,00', 'Attiva')"
+                                class="text-blue-600 hover:text-blue-800 font-medium text-sm">Dettagli &rarr;</button>
+                        </div>
+                    </div>
+                    <div class="company-card bg-white shadow-lg rounded-xl overflow-hidden transition-all hover:shadow-xl border-l-4 border-blue-600 transform hover:-translate-y-1 flex flex-col justify-between"
+                        data-category="tech" data-affinity="90" data-score="94" data-revenue="6.0">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <h2 class="text-xl font-bold text-gray-900">CyberShield</h2><span
+                                    class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">SaaS</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Soluzioni di cybersecurity per PMI. Protezione dati e
+                                gdpr compliance.</p>
+                            <div class="grid grid-cols-2 gap-2 text-sm text-center">
+                                <div class="bg-gray-50 p-2 rounded"><span
+                                        class="block text-gray-500 text-xs">Affinità</span><span
+                                        class="font-bold text-blue-600">90/100</span></div>
+                                <div class="bg-gray-50 p-2 rounded"><span
+                                        class="block text-gray-500 text-xs">Ricavi</span><span
+                                        class="font-bold text-green-600">6.0%</span></div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-between items-center">
+                            <span class="text-xs text-gray-500">Target: € 200.000</span><button
+                                onclick="openCompanyDetails('CyberShield', 'IT1231231234', '2020-03-15', 'Roma (RM)', '€ 10.000,00', 'Attiva')"
+                                class="text-blue-600 hover:text-blue-800 font-medium text-sm">Dettagli &rarr;</button>
+                        </div>
+                    </div>
+                    <div class="company-card bg-white shadow-lg rounded-xl overflow-hidden transition-all hover:shadow-xl border-l-4 border-gray-500 transform hover:-translate-y-1 flex flex-col justify-between"
+                        data-category="servizi" data-affinity="70" data-score="75" data-revenue="5.0">
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <h2 class="text-xl font-bold text-gray-900">Logistica Rapida</h2><span
+                                    class="px-2 py-1 bg-gray-100 text-gray-800 rounded-full text-xs font-semibold">Servizi</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">Flotta di veicoli elettrici per consegne ultimo miglio
+                                nei centri storici.</p>
+                            <div class="grid grid-cols-2 gap-2 text-sm text-center">
+                                <div class="bg-gray-50 p-2 rounded"><span
+                                        class="block text-gray-500 text-xs">Affinità</span><span
+                                        class="font-bold text-blue-600">70/100</span></div>
+                                <div class="bg-gray-50 p-2 rounded"><span
+                                        class="block text-gray-500 text-xs">Ricavi</span><span
+                                        class="font-bold text-green-600">5.0%</span></div>
+                            </div>
+                        </div>
+
+                        <!-- NUOVE CARDS -->
+                        <div class="company-card bg-white shadow-lg rounded-xl overflow-hidden transition-all hover:shadow-xl border-l-4 border-purple-600 transform hover:-translate-y-1 flex flex-col justify-between"
+                            data-category="ai" data-affinity="92" data-score="96" data-revenue="9.5">
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h2 class="text-xl font-bold text-gray-900">NeuroBotics</h2><span
+                                        class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-semibold">AI
+                                        & Robotics</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4">Assistenti robotici autonomi per la cura degli
+                                    anziani e disabili.</p>
+                                <div class="grid grid-cols-2 gap-2 text-sm text-center">
+                                    <div class="bg-gray-50 p-2 rounded"><span
+                                            class="block text-gray-500 text-xs">Affinità</span><span
+                                            class="font-bold text-blue-600">92/100</span></div>
+                                    <div class="bg-gray-50 p-2 rounded"><span
+                                            class="block text-gray-500 text-xs">Ricavi</span><span
+                                            class="font-bold text-green-600">9.5%</span></div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Target: € 150.000</span><button
+                                    onclick="openCompanyDetails('NeuroBotics', 'IT111222333', '2024-05-20', 'Pisa (PI)', '€ 50.000,00', 'Attiva')"
+                                    class="text-blue-600 hover:text-blue-800 font-medium text-sm">Dettagli
+                                    &rarr;</button>
+                            </div>
+                        </div>
+
+                        <div class="company-card bg-white shadow-lg rounded-xl overflow-hidden transition-all hover:shadow-xl border-l-4 border-green-700 transform hover:-translate-y-1 flex flex-col justify-between"
+                            data-category="agri" data-affinity="85" data-score="89" data-revenue="6.8">
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h2 class="text-xl font-bold text-gray-900">AgriDrone Italia</h2><span
+                                        class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">AgriTech</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4">Monitoraggio delle colture tramite droni e sensori
+                                    IoT avanzati.</p>
+                                <div class="grid grid-cols-2 gap-2 text-sm text-center">
+                                    <div class="bg-gray-50 p-2 rounded"><span
+                                            class="block text-gray-500 text-xs">Affinità</span><span
+                                            class="font-bold text-blue-600">85/100</span></div>
+                                    <div class="bg-gray-50 p-2 rounded"><span
+                                            class="block text-gray-500 text-xs">Ricavi</span><span
+                                            class="font-bold text-green-600">6.8%</span></div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Target: € 80.000</span><button
+                                    onclick="openCompanyDetails('AgriDrone Italia', 'IT444555666', '2023-02-10', 'Bari (BA)', '€ 20.000,00', 'Attiva')"
+                                    class="text-blue-600 hover:text-blue-800 font-medium text-sm">Dettagli
+                                    &rarr;</button>
+                            </div>
+                        </div>
+
+                        <div class="company-card bg-white shadow-lg rounded-xl overflow-hidden transition-all hover:shadow-xl border-l-4 border-yellow-600 transform hover:-translate-y-1 flex flex-col justify-between"
+                            data-category="fintech" data-affinity="78" data-score="90" data-revenue="8.5">
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h2 class="text-xl font-bold text-gray-900">PayEasy</h2><span
+                                        class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-semibold">Fintech</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4">Gateway di pagamento semplificato per piccoli
+                                    e-commerce italiani.</p>
+                                <div class="grid grid-cols-2 gap-2 text-sm text-center">
+                                    <div class="bg-gray-50 p-2 rounded"><span
+                                            class="block text-gray-500 text-xs">Affinità</span><span
+                                            class="font-bold text-blue-600">78/100</span></div>
+                                    <div class="bg-gray-50 p-2 rounded"><span
+                                            class="block text-gray-500 text-xs">Ricavi</span><span
+                                            class="font-bold text-green-600">8.5%</span></div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Target: € 250.000</span><button
+                                    onclick="openCompanyDetails('PayEasy', 'IT777888999', '2022-11-15', 'Milano (MI)', '€ 100.000,00', 'Attiva')"
+                                    class="text-blue-600 hover:text-blue-800 font-medium text-sm">Dettagli
+                                    &rarr;</button>
+                            </div>
+                        </div>
+
+                        <div class="company-card bg-white shadow-lg rounded-xl overflow-hidden transition-all hover:shadow-xl border-l-4 border-red-500 transform hover:-translate-y-1 flex flex-col justify-between"
+                            data-category="food" data-affinity="82" data-score="85" data-revenue="9.0">
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h2 class="text-xl font-bold text-gray-900">Pasta Fresca Express</h2><span
+                                        class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs font-semibold">Food</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4">Catena di delivery di pasta fresca fatta a mano in
+                                    30 minuti.</p>
+                                <div class="grid grid-cols-2 gap-2 text-sm text-center">
+                                    <div class="bg-gray-50 p-2 rounded"><span
+                                            class="block text-gray-500 text-xs">Affinità</span><span
+                                            class="font-bold text-blue-600">82/100</span></div>
+                                    <div class="bg-gray-50 p-2 rounded"><span
+                                            class="block text-gray-500 text-xs">Ricavi</span><span
+                                            class="font-bold text-green-600">9.0%</span></div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Target: € 60.000</span><button
+                                    onclick="openCompanyDetails('Pasta Fresca Express', 'IT000111222', '2023-06-01', 'Napoli (NA)', '€ 15.000,00', 'Attiva')"
+                                    class="text-blue-600 hover:text-blue-800 font-medium text-sm">Dettagli
+                                    &rarr;</button>
+                            </div>
+                        </div>
+
+                        <div class="company-card bg-white shadow-lg rounded-xl overflow-hidden transition-all hover:shadow-xl border-l-4 border-blue-400 transform hover:-translate-y-1 flex flex-col justify-between"
+                            data-category="tech" data-affinity="65" data-score="70" data-revenue="4.2">
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h2 class="text-xl font-bold text-gray-900">EdTech Kids</h2><span
+                                        class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">EdTech</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4">Piattaforma educativa gamificata per
+                                    l'apprendimento delle lingue.</p>
+                                <div class="grid grid-cols-2 gap-2 text-sm text-center">
+                                    <div class="bg-gray-50 p-2 rounded"><span
+                                            class="block text-gray-500 text-xs">Affinità</span><span
+                                            class="font-bold text-blue-600">65/100</span></div>
+                                    <div class="bg-gray-50 p-2 rounded"><span
+                                            class="block text-gray-500 text-xs">Ricavi</span><span
+                                            class="font-bold text-green-600">4.2%</span></div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Target: € 40.000</span><button
+                                    onclick="openCompanyDetails('EdTech Kids', 'IT333222111', '2021-09-09', 'Torino (TO)', '€ 10.000,00', 'Attiva')"
+                                    class="text-blue-600 hover:text-blue-800 font-medium text-sm">Dettagli
+                                    &rarr;</button>
+                            </div>
+                        </div>
+
+                        <div class="company-card bg-white shadow-lg rounded-xl overflow-hidden transition-all hover:shadow-xl border-l-4 border-gray-700 transform hover:-translate-y-1 flex flex-col justify-between"
+                            data-category="servizi" data-affinity="88" data-score="82" data-revenue="6.5">
+                            <div class="p-6">
+                                <div class="flex items-center justify-between mb-3">
+                                    <h2 class="text-xl font-bold text-gray-900">LegalTech Solutions</h2><span
+                                        class="px-2 py-1 bg-gray-100 text-gray-800 rounded-full text-xs font-semibold">Legal</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4">Automazione contrattuale per liberi professionisti
+                                    tramite blockchain.</p>
+                                <div class="grid grid-cols-2 gap-2 text-sm text-center">
+                                    <div class="bg-gray-50 p-2 rounded"><span
+                                            class="block text-gray-500 text-xs">Affinità</span><span
+                                            class="font-bold text-blue-600">88/100</span></div>
+                                    <div class="bg-gray-50 p-2 rounded"><span
+                                            class="block text-gray-500 text-xs">Ricavi</span><span
+                                            class="font-bold text-green-600">6.5%</span></div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Target: € 110.000</span><button
+                                    onclick="openCompanyDetails('LegalTech Solutions', 'IT666555444', '2023-12-01', 'Roma (RM)', '€ 35.000,00', 'Attiva')"
+                                    class="text-blue-600 hover:text-blue-800 font-medium text-sm">Dettagli
+                                    &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vista: Il tuo Portfolio -->
+                <div id="investitore-view" class="view-content hidden">
+                    <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+                        <header class="mb-8 flex justify-between items-end border-b pb-4">
+                            <div>
+                                <h1 class="text-3xl font-bold leading-tight text-gray-900">Portfolio Gestito</h1>
+                                <p class="mt-2 text-lg text-gray-600">Analisi tecnica e performance degli asset.</p>
+                            </div>
+                            <button
+                                class="bg-gray-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-700">Scarica
+                                Report PDF</button>
+                        </header>
+
+                        <!-- KPI DASHBOARD -->
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                            <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+                                <p class="text-xs font-semibold text-gray-500 uppercase">Totale Investito (AUM)</p>
+                                <p class="text-2xl font-bold text-gray-900 mt-1">€ 28,500.00</p>
+                                <p class="text-xs text-green-600 mt-2 font-medium">↑ 12% vs Anno Scorso</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+                                <p class="text-xs font-semibold text-gray-500 uppercase">ROI Ponderato</p>
+                                <p class="text-2xl font-bold text-blue-600 mt-1">14.2%</p>
+                                <p class="text-xs text-gray-500 mt-2">Annualizzato</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+                                <p class="text-xs font-semibold text-gray-500 uppercase">Dividendi Accumulati</p>
+                                <p class="text-2xl font-bold text-green-600 mt-1">€ 3,120.50</p>
+                                <p class="text-xs text-gray-500 mt-2">Ultimo payout: 15/12</p>
+                            </div>
+                            <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+                                <p class="text-xs font-semibold text-gray-500 uppercase">Risk Score</p>
+                                <div class="flex items-center mt-1">
+                                    <span class="text-2xl font-bold text-yellow-600 mr-2">B+</span>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-gray-500 mt-2">Moderato (Diversificato)</p>
+                            </div>
+                        </div>
+
+                        <!-- TABLE SECTION -->
+                        <div class="bg-white shadow rounded-lg overflow-hidden border border-gray-200">
+                            <div
+                                class="px-6 py-4 border-b border-gray-200 bg-gray-50 flex justify-between items-center">
+                                <h3 class="text-lg font-medium text-gray-900">Allocation Table</h3>
+                                <div class="flex space-x-2">
+                                    <input type="text" placeholder="Filtra asset..."
+                                        class="text-sm border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+                                </div>
+                            </div>
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Asset / ID</th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Settore</th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Data Ingresso</th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Investito</th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Val. Attuale</th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                P&L %</th>
+                                            <th scope="col"
+                                                class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Azioni</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                        <!-- Row 1 -->
+                                        <tr class="hover:bg-gray-50 transition">
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div
+                                                        class="flex-shrink-0 h-8 w-8 rounded bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">
+                                                        TS</div>
+                                                    <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">TechSoluzioni
+                                                            S.r.l.
+                                                        </div>
+                                                        <div class="text-xs text-gray-500">ISIN: IT0987654321</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <span
+                                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">SaaS</span>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">12 Gen 2024
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right">€
+                                                5,000.00</td>
+                                            <td
+                                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-bold text-right">
+                                                € 5,900.00</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right">
+                                                <span class="text-green-600 font-bold text-sm">+18.0%</span>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                                                <button
+                                                    onclick="openCompanyDetails('TechSoluzioni', 'IT01', '2019', 'MI', '100k', 'Ok')"
+                                                    class="text-blue-600 hover:text-blue-900 mr-3">Dettagli</button>
+                                                <button onclick="openLiquidationPopup('TechSoluzioni', 5000, 900, 1.18)"
+                                                    class="text-red-600 hover:text-red-900">Liquida</button>
+                                            </td>
+                                        </tr>
+                                        <!-- Row 2 -->
+                                        <tr class="hover:bg-gray-50 transition">
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div
+                                                        class="flex-shrink-0 h-8 w-8 rounded bg-green-100 text-green-600 flex items-center justify-center font-bold text-xs">
+                                                        GA</div>
+                                                    <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">GustoArtigiano
+                                                        </div>
+                                                        <div class="text-xs text-gray-500">ISIN: IT1122334455</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <span
+                                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Food</span>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">28 Feb 2024
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right">€
+                                                10,000.00</td>
+                                            <td
+                                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-bold text-right">
+                                                € 11,200.00</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right">
+                                                <span class="text-green-600 font-bold text-sm">+12.0%</span>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                                                <button
+                                                    onclick="openCompanyDetails('GustoArtigiano', 'IT02', '2020', 'PA', '80k', 'Ok')"
+                                                    class="text-blue-600 hover:text-blue-900 mr-3">Dettagli</button>
+                                                <button
+                                                    onclick="openLiquidationPopup('GustoArtigiano', 10000, 1200, 1.12)"
+                                                    class="text-red-600 hover:text-red-900">Liquida</button>
+                                            </td>
+                                        </tr>
+                                        <!-- Row 3 -->
+                                        <tr class="hover:bg-gray-50 transition">
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div
+                                                        class="flex-shrink-0 h-8 w-8 rounded bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-xs">
+                                                        BT</div>
+                                                    <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">BioMed Tech</div>
+                                                        <div class="text-xs text-gray-500">ISIN: IT9988776655</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <span
+                                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-indigo-100 text-indigo-800">MedTech</span>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">10 Mar 2024
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right">€
+                                                3,500.00</td>
+                                            <td
+                                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-bold text-right">
+                                                € 3,450.00</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right">
+                                                <span class="text-red-500 font-bold text-sm">-1.4%</span>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                                                <button
+                                                    onclick="openCompanyDetails('BioMed Tech', 'IT03', '2021', 'TO', '150k', 'Ok')"
+                                                    class="text-blue-600 hover:text-blue-900 mr-3">Dettagli</button>
+                                                <button onclick="openLiquidationPopup('BioMed Tech', 3500, -50, 0.98)"
+                                                    class="text-red-600 hover:text-red-900">Liquida</button>
+                                            </td>
+                                        </tr>
+                                        <!-- Row 4 -->
+                                        <tr class="hover:bg-gray-50 transition">
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div
+                                                        class="flex-shrink-0 h-8 w-8 rounded bg-yellow-100 text-yellow-600 flex items-center justify-center font-bold text-xs">
+                                                        SW</div>
+                                                    <div class="ml-4">
+                                                        <div class="text-sm font-medium text-gray-900">SolarWave</div>
+                                                        <div class="text-xs text-gray-500">ISIN: IT5555555555</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <span
+                                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Energy</span>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">01 Apr 2024
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-right">€
+                                                10,000.00</td>
+                                            <td
+                                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-bold text-right">
+                                                € 10,800.00</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right">
+                                                <span class="text-green-600 font-bold text-sm">+8.0%</span>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                                                <button
+                                                    onclick="openCompanyDetails('SolarWave', 'IT04', '2022', 'BO', '200k', 'Ok')"
+                                                    class="text-blue-600 hover:text-blue-900 mr-3">Dettagli</button>
+                                                <button onclick="openLiquidationPopup('SolarWave', 10000, 800, 1.08)"
+                                                    class="text-red-600 hover:text-red-900">Liquida</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div
+                                class="bg-gray-50 px-6 py-4 border-t border-gray-200 flex items-center justify-between">
+                                <div class="text-sm text-gray-500">Visualizzando <span class="font-medium">4</span> di
+                                    <span class="font-medium">4</span> asset
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button
+                                        class="px-3 py-1 border border-gray-300 rounded-md bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                                        disabled>Precedente</button>
+                                    <button
+                                        class="px-3 py-1 border border-gray-300 rounded-md bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                                        disabled>Successivo</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- GRAPHS ROW -->
+                        <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                                <h3 class="text-lg font-medium text-gray-900 mb-4">Diversificazione Settoriale</h3>
+                                <div
+                                    class="relative h-48 w-full bg-gray-50 rounded border border-dashed border-gray-300 flex items-center justify-center text-gray-400">
+                                    [Grafico Torta Placeholder]
+                                    <!-- Qui andrebbe chart.js, ma usiamo un placeholder puro CSS per semplicità o integrazione futura -->
+                                </div>
+                                <div class="mt-4 flex justify-between text-xs text-gray-500">
+                                    <span class="flex items-center"><span
+                                            class="w-2 h-2 rounded-full bg-blue-500 mr-1"></span>Tech (18%)</span>
+                                    <span class="flex items-center"><span
+                                            class="w-2 h-2 rounded-full bg-green-500 mr-1"></span>Food (35%)</span>
+                                    <span class="flex items-center"><span
+                                            class="w-2 h-2 rounded-full bg-yellow-500 mr-1"></span>Energy (35%)</span>
+                                    <span class="flex items-center"><span
+                                            class="w-2 h-2 rounded-full bg-indigo-500 mr-1"></span>Med (12%)</span>
+                                </div>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                                <h3 class="text-lg font-medium text-gray-900 mb-4">Performance Temporale (YTD)</h3>
+                                <div
+                                    class="relative h-48 w-full bg-gray-50 rounded border border-dashed border-gray-300 flex items-center justify-center text-gray-400">
+                                    [Grafico Linea Placeholder]
+                                </div>
+                                <div class="mt-4 flex justify-between text-xs text-gray-500">
+                                    <span>Gen 24</span>
+                                    <span>Giu 24</span>
+                                    <span>Dic 24</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vista: Portale Azienda -->
+                <div id="azienda-view" class="view-content hidden">
+                    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+                        <div class="mb-6"><button onclick="showView('personale-view')"
+                                class="flex items-center text-gray-500 hover:text-blue-600 transition">&larr; Torna
+                                all'Area
+                                Personale</button></div>
+                        <h1 class="text-3xl font-bold mb-8">Portale Azienda</h1>
+                        <div class="bg-white shadow p-6 rounded-xl">
+                            <p class="text-gray-600">Area riservata per la gestione dei documenti.</p>
+                            <div class="mt-4 p-4 bg-blue-50 border border-blue-100 rounded text-blue-700">Valutazione
+                                Attuale:
+                                <strong>82/100</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vista: Area Personale -->
+                <div id="personale-view" class="view-content hidden">
+                    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-3xl font-bold mb-8">Area Personale</h1>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="bg-white shadow rounded-xl p-6">
+                                <h2 class="text-xl font-bold mb-4">I tuoi Dati</h2>
+                                <p><strong>Nome:</strong> Mario Rossi</p>
+                                <p><strong>Email:</strong> mario.rossi@email.com</p>
+                            </div>
+                            <div class="bg-white shadow rounded-xl p-6 border-l-4 border-purple-500">
+                                <h2 class="text-xl font-bold mb-4">Gestione Aziendale</h2>
+                                <p class="mb-4 text-gray-600">Hai un'azienda? Accedi al portale per cercare fondi.</p>
+                                <button onclick="showView('azienda-view')"
+                                    class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 w-full">Accedi
+                                    al
+                                    Portale Azienda</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vista: Blog -->
+                <div id="blog-view" class="view-content hidden">
+                    <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-3xl font-bold text-center mb-12">Blog</h1>
+                        <div class="grid gap-8 lg:grid-cols-3">
+                            <div class="bg-white shadow rounded-lg overflow-hidden">
+                                <div class="h-48 bg-blue-100 flex items-center justify-center text-blue-500 font-bold">
+                                    Articolo
+                                    1</div>
+                                <div class="p-6">
+                                    <h3 class="font-bold text-xl">Cos'è il Revenue Sharing?</h3>
+                                </div>
+                            </div>
+                            <div class="bg-white shadow rounded-lg overflow-hidden">
+                                <div
+                                    class="h-48 bg-green-100 flex items-center justify-center text-green-500 font-bold">
+                                    Articolo 2</div>
+                                <div class="p-6">
+                                    <h3 class="font-bold text-xl">Settori in crescita 2025</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Viste Istituzionali -->
+                <div id="chi-siamo-view" class="view-content hidden">
+                    <div class="py-16 text-center">
+                        <h1 class="text-3xl font-bold">Chi Siamo</h1>
+                    </div>
+                </div>
+                <div id="contatti-view" class="view-content hidden">
+                    <div class="py-16 text-center">
+                        <h1 class="text-3xl font-bold">Contatti</h1>
+                    </div>
+                </div>
+
+                <!-- Vista: Privacy -->
+                <div id="privacy-view" class="view-content hidden">
+                    <div class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-3xl font-bold text-gray-900 mb-8">Informativa sulla Privacy</h1>
+                        <div class="prose prose-blue text-gray-600">
+                            <p class="mb-4">Ultimo aggiornamento: 20 Dicembre 2025</p>
+                            <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-3">1. Introduzione</h2>
+                            <p class="mb-4">Benvenuto su LetsGrow!...</p>
+                            <!-- Contenuto abbreviato per brevità -->
+                        </div>
+                    </div>
+                </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-auto">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-1"><span class="text-2xl font-bold text-blue-400">LetsGrow!</span>
+                <p class="mt-2 text-gray-400 text-sm">Investimenti intelligenti per PMI.</p>
+            </div>
+            <div>
+                <h3 class="uppercase text-gray-500 font-bold text-xs tracking-wider mb-4">Esplora</h3>
+                <ul>
+                    <li class="mb-2"><button onclick="showView('blog-view')" class="hover:text-white">Blog</button></li>
+                    <li class="mb-2"><button onclick="showView('chi-siamo-view')" class="hover:text-white">Chi
+                            Siamo</button></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="uppercase text-gray-500 font-bold text-xs tracking-wider mb-4">Supporto</h3>
+                <ul>
+                    <li class="mb-2"><button onclick="showView('contatti-view')"
+                            class="hover:text-white">Contatti</button></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="uppercase text-gray-500 font-bold text-xs tracking-wider mb-4">Legale</h3>
+                <ul class="mt-4 space-y-4">
+                    <li><button onclick="showView('privacy-view')"
+                            class="text-base text-gray-400 hover:text-white">Privacy Policy</button></li>
+                    <li><a href="#" class="text-base text-gray-400 hover:text-white">Termini e Condizioni</a></li>
+                    <li><a href="#" class="text-base text-gray-400 hover:text-white">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Popup (Semplificati per brevità) -->
+    <div id="liquidation-popup" class="popup">
+        <div class="popup-content"><span class="close-button" onclick="closePopup('liquidation-popup')">&times;</span>
+            <h2 class="text-xl font-bold mb-4">Liquida</h2>
+            <p id="liquid-text">Vuoi procedere?</p><button class="mt-4 bg-red-600 text-white px-4 py-2 rounded"
+                onclick="closePopup('liquidation-popup')">Conferma</button>
+        </div>
+    </div>
+    <div id="company-details-popup" class="popup">
+        <div class="popup-content"><span class="close-button"
+                onclick="closePopup('company-details-popup')">&times;</span>
+            <h2 class="text-xl font-bold mb-4" id="detail-title">Dettagli</h2>
+            <div id="detail-content">Dati caricati...</div>
+        </div>
+    </div>
+
+    <!-- Main JS -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

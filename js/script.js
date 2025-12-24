@@ -5,14 +5,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- LOGICA MARKETPLACE (Filtri e Ordinamento) ---
 
     window.filterCompanies = () => {
-        const selectedCategory = document.getElementById('category-filter').value;
-        const searchQuery = document.getElementById('search-input').value.toLowerCase();
+        const categoryFilter = document.getElementById('category-filter');
+        const searchInput = document.getElementById('search-input');
+
+        // Safety check: if elements don't exist (e.g. on Index page), stop.
+        if (!categoryFilter || !searchInput) return;
+
+        const selectedCategory = categoryFilter.value;
+        const searchQuery = searchInput.value.toLowerCase();
         const companyCards = document.querySelectorAll('.company-card');
 
         companyCards.forEach(card => {
             const cardCategory = card.getAttribute('data-category');
-            const cardName = card.querySelector('h2').innerText.toLowerCase();
-            const cardDesc = card.querySelector('p').innerText.toLowerCase();
+            const h2 = card.querySelector('h2');
+            const p = card.querySelector('p');
+
+            const cardName = h2 ? h2.innerText.toLowerCase() : '';
+            const cardDesc = p ? p.innerText.toLowerCase() : '';
 
             const matchesCategory = selectedCategory === 'all' || cardCategory === selectedCategory;
             const matchesSearch = cardName.includes(searchQuery) || cardDesc.includes(searchQuery);
@@ -27,32 +36,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.sortCompanies = (criteria) => {
         const grid = document.getElementById('companies-grid');
+        // Safety check
+        if (!grid) return;
+
         const cards = Array.from(document.querySelectorAll('.company-card'));
+
+        // Update button styles
         document.querySelectorAll('.sort-btn').forEach(btn => {
             btn.classList.remove('bg-blue-600', 'text-white');
             btn.classList.add('bg-gray-200', 'text-gray-700');
         });
-        document.getElementById(`btn-sort-${criteria}`).classList.remove('bg-gray-200', 'text-gray-700');
-        document.getElementById(`btn-sort-${criteria}`).classList.add('bg-blue-600', 'text-white');
+
+        const activeBtn = document.getElementById(`btn-sort-${criteria}`);
+        if (activeBtn) {
+            activeBtn.classList.remove('bg-gray-200', 'text-gray-700');
+            activeBtn.classList.add('bg-blue-600', 'text-white');
+        }
+
         cards.sort((a, b) => {
-            const valA = parseFloat(a.getAttribute(`data-${criteria}`));
-            const valB = parseFloat(b.getAttribute(`data-${criteria}`));
+            const valA = parseFloat(a.getAttribute(`data-${criteria}`)) || 0;
+            const valB = parseFloat(b.getAttribute(`data-${criteria}`)) || 0;
             return valB - valA;
         });
+
         cards.forEach(card => grid.appendChild(card));
     };
 
     // Gestione Navigazione
     window.showView = (viewId) => {
-        window.scrollTo(0, 0);
-        views.forEach(v => v.classList.add('hidden'));
-        document.getElementById(viewId).classList.remove('hidden');
+        const targetView = document.getElementById(viewId);
+        if (!targetView) return;
 
-        // Aggiorna lo stato attivo solo per i link principali
-        navButtons.forEach(btn => btn.classList.remove('active'));
-        if (viewId === 'home-view') document.getElementById('nav-home')?.classList.add('active');
-        if (viewId === 'investi-view') document.getElementById('nav-investi')?.classList.add('active');
-        if (viewId === 'investitore-view') document.getElementById('nav-portfolio')?.classList.add('active');
+        window.scrollTo(0, 0);
+
+        // Hide all views associated with main navigation or sub-sections
+        views.forEach(v => v.classList.add('hidden'));
+
+        // Show target view
+        targetView.classList.remove('hidden');
+
+        // Update active state logic
+        navButtons.forEach(btn => btn.classList.remove('active', 'text-gray-900', 'bg-gray-100')); // Reset styles if needed
+        navButtons.forEach(btn => btn.classList.add('text-gray-500')); // Default state
+
+        // Attempt to find the nav button that corresponds to this view
+        let activeBtnId = '';
+        if (viewId === 'home-view') activeBtnId = 'nav-home';
+        if (viewId === 'investi-view') activeBtnId = 'nav-investi';
+        if (viewId === 'investitore-view') activeBtnId = 'nav-portfolio';
+
+        if (activeBtnId) {
+            const activeNav = document.getElementById(activeBtnId);
+            if (activeNav) {
+                activeNav.classList.remove('text-gray-500');
+                activeNav.classList.add('active', 'text-gray-900');
+            }
+        }
     };
 
     // Popup Logic
@@ -60,26 +99,55 @@ document.addEventListener('DOMContentLoaded', () => {
         const el = document.getElementById(id);
         if (el) {
             el.style.display = 'flex';
-            setTimeout(() => el.classList.add('flex'), 10);
+            // Small delay to allow display:flex to apply before opacity transition
+            setTimeout(() => el.classList.add('opacity-100'), 10);
         }
     };
 
     window.closePopup = (id) => {
         const el = document.getElementById(id);
         if (el) {
-            el.classList.remove('flex');
+            el.classList.remove('opacity-100');
             setTimeout(() => el.style.display = 'none', 300);
         }
     };
 
     window.openLiquidationPopup = (name, amount, profit, multiplier) => {
-        // Note: Arguments were inferred from usage in HTML (though mostly unused in the original alert/function body, 
-        // except name). Kept generic logic or updated to actually use them if needed. 
-        // Original code just updated text.
         const textEl = document.getElementById('liquid-text');
-        if (textEl) textEl.innerText = `Liquidazione contratto per ${name}.`;
+        const contentEl = document.querySelector('#liquidation-popup .popup-content');
+
+        if (textEl && contentEl) {
+            let profitClass = profit >= 0 ? 'text-green-600' : 'text-red-600';
+            let profitSign = profit >= 0 ? '+' : '';
+
+            contentEl.innerHTML = `
+                <span class="close-button text-gray-400 hover:text-gray-600 float-right text-2xl cursor-pointer" onclick="closePopup('liquidation-popup')">&times;</span>
+                <h2 class="text-xl font-bold mb-4 text-gray-900">Conferma Liquidazione</h2>
+                <div class="mb-4">
+                    <p class="text-gray-600 mb-2">Stai per liquidare la posizione in <strong>${name}</strong>.</p>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span>Importo Iniziale:</span>
+                            <span class="font-medium">€ ${amount.toLocaleString('it-IT', { minimumFractionDigits: 2 })}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Profitto/Perdita:</span>
+                            <span class="font-bold ${profitClass}">${profitSign}€ ${Math.abs(profit).toLocaleString('it-IT', { minimumFractionDigits: 2 })}</span>
+                        </div>
+                        <div class="flex justify-between border-t pt-2 mt-2">
+                             <span>Moltiplicatore:</span>
+                             <span class="font-bold text-gray-800">${multiplier}x</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex space-x-3">
+                    <button class="flex-1 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition" onclick="alert('Liquidazione confermata!'); closePopup('liquidation-popup')">Conferma Liquidazione</button>
+                    <button class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg font-medium transition" onclick="closePopup('liquidation-popup')">Annulla</button>
+                </div>
+            `;
+        }
         openPopup('liquidation-popup');
-    }
+    };
 
     window.openCompanyDetails = (name, vat, date, city, target, status) => {
         const titleEl = document.getElementById('detail-title');
@@ -88,45 +156,70 @@ document.addEventListener('DOMContentLoaded', () => {
         if (titleEl) titleEl.innerText = name;
         if (contentEl) {
             contentEl.innerHTML = `
-                <div class="space-y-2">
-                    <p><strong>P.IVA:</strong> ${vat}</p>
-                    <p><strong>Data:</strong> ${date}</p>
-                    <p><strong>Città:</strong> ${city}</p>
-                    <p><strong>Target:</strong> ${target}</p>
-                    <p><strong>Stato:</strong> <span class="text-green-600 font-bold">${status}</span></p>
+                <div class="space-y-3 text-sm">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase tracking-wide">Partita IVA</p>
+                            <p class="font-medium text-gray-900">${vat}</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase tracking-wide">Data Fondazione</p>
+                            <p class="font-medium text-gray-900">${date}</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase tracking-wide">Sede Legale</p>
+                            <p class="font-medium text-gray-900">${city}</p>
+                        </div>
+                         <div>
+                            <p class="text-xs text-gray-500 uppercase tracking-wide">Target Raccolta</p>
+                            <p class="font-medium text-blue-600">${target}</p>
+                        </div>
+                    </div>
+                    <div class="pt-3 border-t border-gray-100">
+                        <p class="text-xs text-gray-500 uppercase tracking-wide mb-1">Stato Campagna</p>
+                        <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">${status}</span>
+                    </div>
+                </div>
+                <div class="mt-6">
+                     <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 font-medium transition" onclick="closePopup('company-details-popup')">Chiudi</button>
                 </div>
              `;
         }
         openPopup('company-details-popup');
-    }
+    };
 
     // Animation Count Up
     if (document.querySelector('.count-up')) {
         document.querySelectorAll('.count-up').forEach(el => {
-            // For better UX, we could use a real intersection observer here, 
-            // but for now we keep the original logic which just sets the text.
             el.innerText = el.getAttribute('data-value');
         });
     }
 
-    // Default View Logic (Multi-page support)
+    // Default View Logic
     const hash = window.location.hash.replace('#', '');
-    
-    // Determine which view to show
     let defaultView = '';
 
-    if (hash && document.getElementById(hash + '-view')) {
-        defaultView = hash + '-view';
-    } else if (hash && document.getElementById(hash)) { // Support direct IDs like 'investi-view' if passed in hash
-         defaultView = hash;
-    } else if (document.getElementById('home-view')) {
-        defaultView = 'home-view';
-    } else if (document.getElementById('investi-view')) {
-        defaultView = 'investi-view';
-    } else if (document.getElementById('azienda-view')) {
-        defaultView = 'azienda-view';
+    // If there is a hash, try to find a view that matches it
+    if (hash) {
+        if (document.getElementById(hash + '-view')) {
+            defaultView = hash + '-view';
+        } else if (document.getElementById(hash)) {
+            // Check if hash IS the view ID
+            if (document.getElementById(hash).classList.contains('view-content')) {
+                defaultView = hash;
+            }
+        }
+    }
+
+    // Fallback if no hash or invalid hash, but avoid overriding if we are already on a page that inherently shows something
+    // For example, investor.html might default to 'investi-view' if nothing else is selected.
+    if (!defaultView) {
+        if (document.querySelector('#home-view')) defaultView = 'home-view';
+        else if (document.querySelector('#investi-view')) defaultView = 'investi-view';
+        else if (document.querySelector('#azienda-view')) defaultView = 'azienda-view';
     }
 
     if (defaultView) {
         showView(defaultView);
     }
+});

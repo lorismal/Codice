@@ -712,7 +712,27 @@
                     </div>
                 </div>
 
-                <!-- Other views removed -->
+                <!-- Vista: Area Personale -->
+                <div id="personale-view" class="view-content hidden">
+                    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-3xl font-bold mb-8">Area Personale</h1>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="bg-white shadow rounded-xl p-6">
+                                <h2 class="text-xl font-bold mb-4">I tuoi Dati</h2>
+                                <p><strong>Nome:</strong> Mario Rossi</p>
+                                <p><strong>Email:</strong> mario.rossi@email.com</p>
+                            </div>
+                            <div class="bg-white shadow rounded-xl p-6 border-l-4 border-purple-500">
+                                <h2 class="text-xl font-bold mb-4">Gestione Aziendale</h2>
+                                <p class="mb-4 text-gray-600">Hai un'azienda? Accedi al portale per cercare fondi.</p>
+                                <a href="company.html"
+                                    class="block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 w-full text-center">Accedi
+                                    al
+                                    Portale Azienda</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
     </main>
 
@@ -725,23 +745,22 @@
             <div>
                 <h3 class="uppercase text-gray-500 font-bold text-xs tracking-wider mb-4">Esplora</h3>
                 <ul>
-                    <li class="mb-2"><button onclick="showView('blog-view')" class="hover:text-white">Blog</button></li>
-                    <li class="mb-2"><button onclick="showView('chi-siamo-view')" class="hover:text-white">Chi
-                            Siamo</button></li>
+                    <li class="mb-2"><a href="index.html#blog-view" class="hover:text-white">Blog</a></li>
+                    <li class="mb-2"><a href="index.html#chi-siamo-view" class="hover:text-white">Chi
+                            Siamo</a></li>
                 </ul>
             </div>
             <div>
                 <h3 class="uppercase text-gray-500 font-bold text-xs tracking-wider mb-4">Supporto</h3>
                 <ul>
-                    <li class="mb-2"><button onclick="showView('contatti-view')"
-                            class="hover:text-white">Contatti</button></li>
+                    <li class="mb-2"><a href="index.html#contatti-view" class="hover:text-white">Contatti</a></li>
                 </ul>
             </div>
             <div>
                 <h3 class="uppercase text-gray-500 font-bold text-xs tracking-wider mb-4">Legale</h3>
                 <ul class="mt-4 space-y-4">
-                    <li><button onclick="showView('privacy-view')"
-                            class="text-base text-gray-400 hover:text-white">Privacy Policy</button></li>
+                    <li><a href="index.html#privacy-view" class="text-base text-gray-400 hover:text-white">Privacy
+                            Policy</a></li>
                     <li><a href="#" class="text-base text-gray-400 hover:text-white">Termini e Condizioni</a></li>
                     <li><a href="#" class="text-base text-gray-400 hover:text-white">Cookie Policy</a></li>
                 </ul>

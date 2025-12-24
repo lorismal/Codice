@@ -109,6 +109,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Default View
-    showView('home-view');
-});
+    // Default View Logic (Multi-page support)
+    const hash = window.location.hash.replace('#', '');
+    
+    // Determine which view to show
+    let defaultView = '';
+
+    if (hash && document.getElementById(hash + '-view')) {
+        defaultView = hash + '-view';
+    } else if (hash && document.getElementById(hash)) { // Support direct IDs like 'investi-view' if passed in hash
+         defaultView = hash;
+    } else if (document.getElementById('home-view')) {
+        defaultView = 'home-view';
+    } else if (document.getElementById('investi-view')) {
+        defaultView = 'investi-view';
+    } else if (document.getElementById('azienda-view')) {
+        defaultView = 'azienda-view';
+    }
+
+    if (defaultView) {
+        showView(defaultView);
+    }

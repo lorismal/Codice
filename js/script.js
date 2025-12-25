@@ -62,44 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
         cards.forEach(card => grid.appendChild(card));
     };
 
-    // Gestione Navigazione
-    window.showView = (viewId) => {
-        const targetView = document.getElementById(viewId);
-        if (!targetView) return;
-
-        window.scrollTo(0, 0);
-
-        // Hide all views associated with main navigation or sub-sections
-        views.forEach(v => v.classList.add('hidden'));
-
-        // Show target view
-        targetView.classList.remove('hidden');
-
-        // Update active state logic
-        navButtons.forEach(btn => btn.classList.remove('active', 'text-gray-900', 'bg-gray-100')); // Reset styles if needed
-        navButtons.forEach(btn => btn.classList.add('text-gray-500')); // Default state
-
-        // Attempt to find the nav button that corresponds to this view
-        let activeBtnId = '';
-        if (viewId === 'home-view') activeBtnId = 'nav-home';
-        if (viewId === 'investi-view') activeBtnId = 'nav-investi';
-        if (viewId === 'investitore-view') activeBtnId = 'nav-portfolio';
-
-        if (activeBtnId) {
-            const activeNav = document.getElementById(activeBtnId);
-            if (activeNav) {
-                activeNav.classList.remove('text-gray-500');
-                activeNav.classList.add('active', 'text-gray-900');
-            }
-        }
-    };
-
     // Popup Logic
     window.openPopup = (id) => {
         const el = document.getElementById(id);
         if (el) {
             el.style.display = 'flex';
-            // Small delay to allow display:flex to apply before opacity transition
             setTimeout(() => el.classList.add('opacity-100'), 10);
         }
     };
@@ -193,33 +160,5 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.count-up').forEach(el => {
             el.innerText = el.getAttribute('data-value');
         });
-    }
-
-    // Default View Logic
-    const hash = window.location.hash.replace('#', '');
-    let defaultView = '';
-
-    // If there is a hash, try to find a view that matches it
-    if (hash) {
-        if (document.getElementById(hash + '-view')) {
-            defaultView = hash + '-view';
-        } else if (document.getElementById(hash)) {
-            // Check if hash IS the view ID
-            if (document.getElementById(hash).classList.contains('view-content')) {
-                defaultView = hash;
-            }
-        }
-    }
-
-    // Fallback if no hash or invalid hash, but avoid overriding if we are already on a page that inherently shows something
-    // For example, investor.html might default to 'investi-view' if nothing else is selected.
-    if (!defaultView) {
-        if (document.querySelector('#home-view')) defaultView = 'home-view';
-        else if (document.querySelector('#investi-view')) defaultView = 'investi-view';
-        else if (document.querySelector('#azienda-view')) defaultView = 'azienda-view';
-    }
-
-    if (defaultView) {
-        showView(defaultView);
     }
 });

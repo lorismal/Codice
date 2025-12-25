@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LetsGrow! - Portale Investitori</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-gray-100 antialiased flex flex-col min-h-screen">
+
+    <!-- HEADER / NAVIGAZIONE SUPERIORE -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="index.html" class="flex-shrink-0 flex items-center cursor-pointer">
+                    <span class="text-2xl font-bold text-blue-600">Lets<span class="text-gray-900">Grow!</span></span>
+                    <span
+                        class="ml-2 px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">Investitori</span>
+                </a>
+
+                <!-- Navigazione Centrale -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="investor_landing.html" class="nav-link text-gray-900 px-3 py-2 text-sm font-medium active">
+                        Home
+                    </a>
+                    <a href="investor.html"
+                        class="nav-link text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">
+                        Marketplace
+                    </a>
+                    <a href="portfolio.html"
+                        class="nav-link text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">
+                        Portfolio
+                    </a>
+                </div>
+
+                <!-- Area Personale / Destra -->
+                <div class="flex items-center space-x-4">
+                    <button
+                        class="flex items-center space-x-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition">
+                        <div
+                            class="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-xs shadow-sm">
+                            MR
+                        </div>
+                        <span class="hidden sm:inline">Mario Rossi</span>
+                    </button>
+                    <!-- Impostazioni -->
+                    <button class="text-gray-400 hover:text-gray-600 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENUTO PRINCIPALE -->
+    <main class="flex-grow py-8 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+
+        <!-- BENVENUTO E CTA -->
+        <div class="mb-12 text-center md:text-left md:flex justify-between items-end">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-900">Bentornato, Mario! 👋</h1>
+                <p class="mt-2 text-gray-600">Ecco una panoramica dei tuoi investimenti e le ultime novità.</p>
+            </div>
+            <div class="mt-4 md:mt-0 flex space-x-3">
+                <a href="investor.html"
+                    class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition">
+                    Investi Ora
+                </a>
+                <a href="portfolio.html"
+                    class="px-6 py-3 bg-white border border-gray-300 text-gray-700 font-semibold rounded-lg shadow-sm hover:bg-gray-50 transition">
+                    Vai al Portfolio
+                </a>
+            </div>
+        </div>
+
+        <!-- PORTFOLIO INSIGHTS (Carosello / Quick View) -->
+        <section class="mb-12">
+            <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-2">📊</span> Insight Portfolio
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition cursor-pointer"
+                    onclick="window.location.href='portfolio.html'">
+                    <p class="text-sm font-medium text-gray-500 uppercase">Valore Totale</p>
+                    <p class="text-3xl font-bold text-gray-900 mt-1">€ 28,500</p>
+                    <p class="text-xs text-green-600 mt-2 font-medium">↑ +12% questo mese</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition cursor-pointer"
+                    onclick="window.location.href='portfolio.html'">
+                    <p class="text-sm font-medium text-gray-500 uppercase">Prossimo Payout</p>
+                    <p class="text-3xl font-bold text-gray-900 mt-1">€ 320.50</p>
+                    <p class="text-xs text-gray-500 mt-2">Previsto il 15 Gennaio</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition cursor-pointer"
+                    onclick="window.location.href='portfolio.html'">
+                    <p class="text-sm font-medium text-gray-500 uppercase">Aziende in Portfolio</p>
+                    <p class="text-3xl font-bold text-gray-900 mt-1">4</p>
+                    <p class="text-xs text-gray-500 mt-2">2 Settlement in corso</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- ULTIME NEWS AZIENDE (2/3 width) -->
+            <div class="lg:col-span-2 space-y-8">
+                <section>
+                    <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                        <span class="bg-yellow-100 text-yellow-600 p-2 rounded-lg mr-2">📰</span> Ultime News dalle
+                        Aziende
+                    </h2>
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 divide-y divide-gray-100">
+                        <!-- News 1 -->
+                        <div class="p-6 hover:bg-gray-50 transition">
+                            <div class="flex items-start">
+                                <div
+                                    class="flex-shrink-0 h-12 w-12 bg-green-100 rounded-lg flex items-center justify-center text-2xl">
+                                    🚀</div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-semibold text-gray-900">TechSoluzioni Espande in Francia
+                                    </h3>
+                                    <p class="text-gray-600 text-sm mt-1">Grazie all'ultimo round di finanziamento,
+                                        TechSoluzioni ha aperto una nuova sede commerciale a Lione.</p>
+                                    <div class="mt-2 text-xs text-gray-400">2 ore fa &middot; TechSoluzioni S.r.l.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- News 2 -->
+                        <div class="p-6 hover:bg-gray-50 transition">
+                            <div class="flex items-start">
+                                <div
+                                    class="flex-shrink-0 h-12 w-12 bg-yellow-100 rounded-lg flex items-center justify-center text-2xl">
+                                    ☀️</div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-semibold text-gray-900">SolarWave: Record di Efficienza</h3>
+                                    <p class="text-gray-600 text-sm mt-1">I nuovi pannelli installati nel parco di
+                                        Brindisi hanno superato le aspettative di rendimento del 15%.</p>
+                                    <div class="mt-2 text-xs text-gray-400">1 giorno fa &middot; SolarWave</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- News 3 -->
+                        <div class="p-6 hover:bg-gray-50 transition">
+                            <div class="flex items-start">
+                                <div
+                                    class="flex-shrink-0 h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center text-2xl">
+                                    🤖</div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-semibold text-gray-900">NeuroBotics rilascia update v2.0
+                                    </h3>
+                                    <p class="text-gray-600 text-sm mt-1">Importante aggiornamento software per tutta la
+                                        flotta di assistenti robotici.</p>
+                                    <div class="mt-2 text-xs text-gray-400">3 giorni fa &middot; NeuroBotics</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- DOCUMENTI IMPORTANTI (1/3 width) -->
+            <div class="lg:col-span-1">
+                <section>
+                    <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                        <span class="bg-indigo-100 text-indigo-600 p-2 rounded-lg mr-2">📂</span> Documenti
+                    </h2>
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 space-y-4">
+                        <div
+                            class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition cursor-pointer">
+                            <div class="mr-3 text-red-500 text-2xl">📄</div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-900">Report Trimestrale Q3</h4>
+                                <p class="text-xs text-gray-500">PDF &middot; 2.4 MB</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition cursor-pointer">
+                            <div class="mr-3 text-red-500 text-2xl">📄</div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-900">Regolamento 2025</h4>
+                                <p class="text-xs text-gray-500">PDF &middot; 1.2 MB</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition cursor-pointer">
+                            <div class="mr-3 text-green-500 text-2xl">📊</div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-gray-900">Analisi Mercato Green</h4>
+                                <p class="text-xs text-gray-500">XLSX &middot; 4.5 MB</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Banner Promo -->
+                    <div
+                        class="mt-8 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-xl p-6 text-white text-center">
+                        <h3 class="font-bold text-lg mb-2">Invita un Amico</h3>
+                        <p class="text-sm text-blue-100 mb-4">Ricevi €50 di bonus per ogni amico che investe.</p>
+                        <button
+                            class="bg-white text-blue-600 text-sm font-bold px-4 py-2 rounded shadow hover:bg-gray-100 transition">Copia
+                            Link</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-auto">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-1"><span class="text-2xl font-bold text-blue-400">LetsGrow!</span>
+                <p class="mt-2 text-gray-400 text-sm">Investimenti intelligenti per PMI.</p>
+            </div>
+            <div>
+                <h3 class="uppercase text-gray-500 font-bold text-xs tracking-wider mb-4">Esplora</h3>
+                <ul>
+                    <li class="mb-2"><a href="blog/" class="hover:text-white">Blog</a></li>
+                    <li class="mb-2"><a href="chi-siamo.html" class="hover:text-white">Chi Siamo</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="uppercase text-gray-500 font-bold text-xs tracking-wider mb-4">Supporto</h3>
+                <ul>
+                    <li class="mb-2"><a href="contatti.html" class="hover:text-white">Contatti</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="uppercase text-gray-500 font-bold text-xs tracking-wider mb-4">Legale</h3>
+                <ul class="mt-4 space-y-4">
+                    <li><a href="privacy.html" class="text-base text-gray-400 hover:text-white">Privacy Policy</a></li>
+                    <li><a href="termini.html" class="text-base text-gray-400 hover:text-white">Termini e Condizioni</a>
+                    </li>
+                    <li><a href="cookies.html" class="text-base text-gray-400 hover:text-white">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JS (Removed for now as logic is simplified) -->
+    <!-- <script src="js/script.js"></script> -->
+</body>
+
+</html>

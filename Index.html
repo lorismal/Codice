@@ -21,339 +21,214 @@
 <body class="bg-gray-100 antialiased flex flex-col min-h-screen">
 
     <!-- HEADER / NAVIGAZIONE SUPERIORE -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <a href="index.html" class="flex-shrink-0 flex items-center cursor-pointer">
-                    <span class="text-2xl font-bold text-blue-600">Lets<span class="text-gray-900">Grow!</span></span>
-                </a>
-
-                <!-- Navigazione Centrale -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" id="nav-home"
-                        class="nav-link text-gray-900 px-3 py-2 text-sm font-medium active">
-                        Home
-                    </a>
-                    <a href="investor.html" id="nav-investi"
-                        class="nav-link text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">
-                        Investi!
-                    </a>
-                    <a href="portfolio.html" id="nav-portfolio"
-                        class="nav-link text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">
-                        Il tuo Portfolio
-                    </a>
-                </div>
-
-                <!-- Area Personale / Destra -->
-                <div class="flex items-center space-x-4">
-                    <button id="nav-personale" onclick="showView('personale-view')"
-                        class="flex items-center space-x-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition">
-                        <div
-                            class="h-8 w-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-xs shadow-sm">
-                            MR
-                        </div>
-                        <span class="hidden sm:inline">Mario Rossi</span>
-                    </button>
-                    <!-- Icona Impostazioni -->
-                    <button onclick="alert('Apertura impostazioni...')"
-                        class="text-gray-400 hover:text-gray-600 transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </nav>
-    </header>
-
     <!-- Contenuto Principale -->
     <main class="flex-grow">
 
-        <!-- Vista: Home -->
-        <div id="home-view" class="view-content">
-            <div class="bg-white overflow-hidden">
+        <div class="bg-white overflow-hidden">
 
-                <!-- Sezione Hero: Testo e CTA (Full Width) -->
-                <div class="max-w-7xl mx-auto pt-10 pb-12 px-4 sm:pt-16 sm:px-6 md:pt-20 lg:pt-28 lg:px-8 text-center">
-                    <main>
-                        <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                            <span class="block xl:inline">Connettere Piccoli</span>
-                            <span class="block text-blue-600 xl:inline">Investitori con Grandi Idee.</span>
-                        </h1>
-                        <p
-                            class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-                            La piattaforma di revenue sharing che ti permette di finanziare le PMI italiane in modo
-                            semplice e trasparente.
+            <!-- Sezione Hero: Testo e CTA (Full Width) -->
+            <div class="max-w-7xl mx-auto pt-10 pb-12 px-4 sm:pt-16 sm:px-6 md:pt-20 lg:pt-28 lg:px-8 text-center">
+                <main>
+                    <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                        <span class="block xl:inline">Connettere Piccoli</span>
+                        <span class="block text-blue-600 xl:inline">Investitori con Grandi Idee.</span>
+                    </h1>
+                    <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                        La piattaforma di revenue sharing che ti permette di finanziare le PMI italiane in modo
+                        semplice e trasparente.
+                    </p>
+                    <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
+                        <div class="rounded-md shadow">
+                            <a href="investor_landing.html"
+                                class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10">
+                                Inizia a Investire
+                            </a>
+                        </div>
+                        <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+                            <a href="company.html"
+                                class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10">
+                                Area Aziende
+                            </a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+
+            <!-- Sezione Metriche Live (SOTTO) -->
+            <div class="bg-gray-800 bg-gradient-to-br from-gray-900 to-gray-700 shadow-inner">
+                <div
+                    class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+                    <div class="text-center lg:text-left mb-8 lg:mb-0">
+                        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                            <span class="block text-blue-300">Metriche Live</span>
+                        </h2>
+                        <p class="mt-3 text-xl text-gray-300">
+                            La crescita della community in tempo reale.
                         </p>
-                        <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-                            <div class="rounded-md shadow">
-                                <a href="investor.html"
-                                    class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10">
-                                    Inizia a Investire
-                                </a>
-                            </div>
-                            <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                                <a href="company.html"
-                                    class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10">
-                                    Cerca Fondi
-                                </a>
-                            </div>
-                        </div>
-                    </main>
-                </div>
-
-                <!-- Sezione Metriche Live (SOTTO) -->
-                <div class="bg-gray-800 bg-gradient-to-br from-gray-900 to-gray-700 shadow-inner">
+                    </div>
                     <div
-                        class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
-                        <div class="text-center lg:text-left mb-8 lg:mb-0">
-                            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                                <span class="block text-blue-300">Metriche Live</span>
-                            </h2>
-                            <p class="mt-3 text-xl text-gray-300">
-                                La crescita della community in tempo reale.
-                            </p>
-                        </div>
-                        <div
-                            class="mt-8 flex flex-col sm:flex-row justify-center gap-6 lg:mt-0 lg:flex-shrink-0 w-full lg:w-auto">
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full">
-                                <div
-                                    class="text-center bg-gray-800/50 p-4 rounded-xl shadow-lg border border-gray-700/50">
-                                    <span class="text-3xl font-extrabold text-blue-400 count-up"
-                                        data-value="1250">0</span>
-                                    <span class="block text-sm mt-1 text-gray-300">Investitori</span>
-                                </div>
-                                <div
-                                    class="text-center bg-gray-800/50 p-4 rounded-xl shadow-lg border border-gray-700/50">
-                                    <span class="text-3xl font-extrabold text-blue-400 count-up"
-                                        data-value="315">0</span>
-                                    <span class="block text-sm mt-1 text-gray-300">Aziende</span>
-                                </div>
-                                <div
-                                    class="text-center bg-gray-800/50 p-4 rounded-xl shadow-lg border border-gray-700/50">
-                                    <span class="text-3xl font-extrabold text-green-400 count-up"
-                                        data-value="8450000">0</span>
-                                    <span class="block text-sm mt-1 text-gray-300">€ Investiti</span>
-                                </div>
-                                <div
-                                    class="text-center bg-gray-800/50 p-4 rounded-xl shadow-lg border border-gray-700/50">
-                                    <span class="text-3xl font-extrabold text-green-400 count-up"
-                                        data-value="1230000">0</span>
-                                    <span class="block text-sm mt-1 text-gray-300">€ Distribuiti</span>
-                                </div>
+                        class="mt-8 flex flex-col sm:flex-row justify-center gap-6 lg:mt-0 lg:flex-shrink-0 w-full lg:w-auto">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full">
+                            <div class="text-center bg-gray-800/50 p-4 rounded-xl shadow-lg border border-gray-700/50">
+                                <span class="text-3xl font-extrabold text-blue-400 count-up" data-value="1250">0</span>
+                                <span class="block text-sm mt-1 text-gray-300">Investitori</span>
+                            </div>
+                            <div class="text-center bg-gray-800/50 p-4 rounded-xl shadow-lg border border-gray-700/50">
+                                <span class="text-3xl font-extrabold text-blue-400 count-up" data-value="315">0</span>
+                                <span class="block text-sm mt-1 text-gray-300">Aziende</span>
+                            </div>
+                            <div class="text-center bg-gray-800/50 p-4 rounded-xl shadow-lg border border-gray-700/50">
+                                <span class="text-3xl font-extrabold text-green-400 count-up"
+                                    data-value="8450000">0</span>
+                                <span class="block text-sm mt-1 text-gray-300">€ Investiti</span>
+                            </div>
+                            <div class="text-center bg-gray-800/50 p-4 rounded-xl shadow-lg border border-gray-700/50">
+                                <span class="text-3xl font-extrabold text-green-400 count-up"
+                                    data-value="1230000">0</span>
+                                <span class="block text-sm mt-1 text-gray-300">€ Distribuiti</span>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- SEZIONE HIGHLIGHTS -->
-                <div class="bg-white py-12 overflow-hidden border-t border-gray-100">
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-                        <h2 class="text-3xl font-bold text-gray-900 text-center">Highlights della Piattaforma</h2>
-                        <p class="text-center text-gray-500 mt-2">Il meglio della nostra community in movimento.</p>
+            <!-- SEZIONE HIGHLIGHTS -->
+            <div class="bg-white py-12 overflow-hidden border-t border-gray-100">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 text-center">Highlights della Piattaforma</h2>
+                    <p class="text-center text-gray-500 mt-2">Il meglio della nostra community in movimento.</p>
+                </div>
+
+                <!-- Riga 1: Top Performers (Scroll Sinistra) -->
+                <div class="mb-10">
+                    <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider px-8 mb-4">⚡️ Aziende
+                        Top ROI</h3>
+                    <div class="relative flex overflow-x-hidden group">
+                        <div class="py-2 animate-marquee whitespace-nowrap flex gap-6">
+                            <span
+                                class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">🚀
+                                TechSoluzioni: +18% ROI</span>
+                            <span
+                                class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">🍕
+                                GustoArtigiano: +12% ROI</span>
+                            <span
+                                class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">☀️
+                                SolarWave: +22% ROI</span>
+                            <span
+                                class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">👗
+                                Urban Style: +15% ROI</span>
+                            <span
+                                class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">🏥
+                                BioMed: +14% ROI</span>
+                            <!-- Duplicati -->
+                            <span
+                                class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">🚀
+                                TechSoluzioni: +18% ROI</span>
+                            <span
+                                class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">🍕
+                                GustoArtigiano: +12% ROI</span>
+                            <span
+                                class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">☀️
+                                SolarWave: +22% ROI</span>
+                            <span
+                                class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">👗
+                                Urban Style: +15% ROI</span>
+                            <span
+                                class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">🏥
+                                BioMed: +14% ROI</span>
+                        </div>
                     </div>
+                </div>
 
-                    <!-- Riga 1: Top Performers (Scroll Sinistra) -->
-                    <div class="mb-10">
-                        <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider px-8 mb-4">⚡️ Aziende
-                            Top ROI</h3>
-                        <div class="relative flex overflow-x-hidden group">
-                            <div class="py-2 animate-marquee whitespace-nowrap flex gap-6">
-                                <span
-                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">🚀
-                                    TechSoluzioni: +18% ROI</span>
-                                <span
-                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">🍕
-                                    GustoArtigiano: +12% ROI</span>
-                                <span
-                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">☀️
-                                    SolarWave: +22% ROI</span>
-                                <span
-                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">👗
-                                    Urban Style: +15% ROI</span>
-                                <span
-                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">🏥
-                                    BioMed: +14% ROI</span>
-                                <!-- Duplicati -->
-                                <span
-                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">🚀
-                                    TechSoluzioni: +18% ROI</span>
-                                <span
-                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">🍕
-                                    GustoArtigiano: +12% ROI</span>
-                                <span
-                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">☀️
-                                    SolarWave: +22% ROI</span>
-                                <span
-                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">👗
-                                    Urban Style: +15% ROI</span>
-                                <span
-                                    class="inline-block px-6 py-3 bg-green-50 rounded-lg border border-green-100 text-green-800 font-medium shadow-sm transform hover:scale-105 transition">🏥
-                                    BioMed: +14% ROI</span>
+                <!-- Riga 2: Blog News (Scroll Destra) -->
+                <div class="mb-10">
+                    <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider px-8 mb-4 text-right">📰
+                        Dal Blog</h3>
+                    <div class="relative flex overflow-x-hidden group">
+                        <div class="py-2 animate-marquee-reverse whitespace-nowrap flex gap-6">
+                            <span
+                                class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Guida
+                                al Revenue Sharing 2025</span>
+                            <span
+                                class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Perché
+                                investire nel GreenTech?</span>
+                            <span
+                                class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Intervista
+                                al CEO di TechSoluzioni</span>
+                            <span
+                                class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Diversificare:
+                                Strategie Vincenti</span>
+                            <!-- Duplicati -->
+                            <span
+                                class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Guida
+                                al Revenue Sharing 2025</span>
+                            <span
+                                class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Perché
+                                investire nel GreenTech?</span>
+                            <span
+                                class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Intervista
+                                al CEO di TechSoluzioni</span>
+                            <span
+                                class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Diversificare:
+                                Strategie Vincenti</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Riga 3: Dicono di Noi (Scroll Lento) -->
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider px-8 mb-4">💬 Dicono di
+                        Noi</h3>
+                    <div class="relative flex overflow-x-hidden group">
+                        <div class="py-2 animate-marquee-slow whitespace-nowrap flex gap-6">
+                            <div
+                                class="inline-flex items-center px-6 py-3 bg-gray-50 rounded-lg border border-gray-100 shadow-sm max-w-md">
+                                <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
+                                <span class="text-gray-700 italic text-sm">"Rendimenti costanti e trasparenti." -
+                                    Marco R.</span>
+                            </div>
+                            <div
+                                class="inline-flex items-center px-6 py-3 bg-gray-50 rounded-lg border border-gray-100 shadow-sm max-w-md">
+                                <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
+                                <span class="text-gray-700 italic text-sm">"Finalmente posso investire nella mia
+                                    città." - Luca B.</span>
+                            </div>
+                            <div
+                                class="inline-flex items-center px-6 py-3 bg-gray-50 rounded-lg border border-gray-100 shadow-sm max-w-md">
+                                <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
+                                <span class="text-gray-700 italic text-sm">"Ottima piattaforma per le PMI." - Giulia
+                                    V.</span>
+                            </div>
+                            <div
+                                class="inline-flex items-center px-6 py-3 bg-gray-50 rounded-lg border border-gray-100 shadow-sm max-w-md">
+                                <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
+                                <span class="text-gray-700 italic text-sm">"Assistenza clienti impeccabile." - Sara
+                                    T.</span>
+                            </div>
+                            <!-- Duplicati -->
+                            <div
+                                class="inline-flex items-center px-6 py-3 bg-gray-50 rounded-lg border border-gray-100 shadow-sm max-w-md">
+                                <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
+                                <span class="text-gray-700 italic text-sm">"Rendimenti costanti e trasparenti." -
+                                    Marco R.</span>
+                            </div>
+                            <div
+                                class="inline-flex items-center px-6 py-3 bg-gray-50 rounded-lg border border-gray-100 shadow-sm max-w-md">
+                                <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
+                                <span class="text-gray-700 italic text-sm">"Finalmente posso investire nella mia
+                                    città." - Luca B.</span>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Riga 2: Blog News (Scroll Destra) -->
-                    <div class="mb-10">
-                        <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider px-8 mb-4 text-right">📰
-                            Dal Blog</h3>
-                        <div class="relative flex overflow-x-hidden group">
-                            <div class="py-2 animate-marquee-reverse whitespace-nowrap flex gap-6">
-                                <span
-                                    class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Guida
-                                    al Revenue Sharing 2025</span>
-                                <span
-                                    class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Perché
-                                    investire nel GreenTech?</span>
-                                <span
-                                    class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Intervista
-                                    al CEO di TechSoluzioni</span>
-                                <span
-                                    class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Diversificare:
-                                    Strategie Vincenti</span>
-                                <!-- Duplicati -->
-                                <span
-                                    class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Guida
-                                    al Revenue Sharing 2025</span>
-                                <span
-                                    class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Perché
-                                    investire nel GreenTech?</span>
-                                <span
-                                    class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Intervista
-                                    al CEO di TechSoluzioni</span>
-                                <span
-                                    class="inline-block px-6 py-3 bg-blue-50 rounded-lg border border-blue-100 text-blue-800 font-medium shadow-sm hover:bg-blue-100 cursor-pointer">Diversificare:
-                                    Strategie Vincenti</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Riga 3: Dicono di Noi (Scroll Lento) -->
-                    <div>
-                        <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider px-8 mb-4">💬 Dicono di
-                            Noi</h3>
-                        <div class="relative flex overflow-x-hidden group">
-                            <div class="py-2 animate-marquee-slow whitespace-nowrap flex gap-6">
-                                <div
-                                    class="inline-flex items-center px-6 py-3 bg-gray-50 rounded-lg border border-gray-100 shadow-sm max-w-md">
-                                    <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
-                                    <span class="text-gray-700 italic text-sm">"Rendimenti costanti e trasparenti." -
-                                        Marco R.</span>
-                                </div>
-                                <div
-                                    class="inline-flex items-center px-6 py-3 bg-gray-50 rounded-lg border border-gray-100 shadow-sm max-w-md">
-                                    <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
-                                    <span class="text-gray-700 italic text-sm">"Finalmente posso investire nella mia
-                                        città." - Luca B.</span>
-                                </div>
-                                <div
-                                    class="inline-flex items-center px-6 py-3 bg-gray-50 rounded-lg border border-gray-100 shadow-sm max-w-md">
-                                    <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
-                                    <span class="text-gray-700 italic text-sm">"Ottima piattaforma per le PMI." - Giulia
-                                        V.</span>
-                                </div>
-                                <div
-                                    class="inline-flex items-center px-6 py-3 bg-gray-50 rounded-lg border border-gray-100 shadow-sm max-w-md">
-                                    <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
-                                    <span class="text-gray-700 italic text-sm">"Assistenza clienti impeccabile." - Sara
-                                        T.</span>
-                                </div>
-                                <!-- Duplicati -->
-                                <div
-                                    class="inline-flex items-center px-6 py-3 bg-gray-50 rounded-lg border border-gray-100 shadow-sm max-w-md">
-                                    <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
-                                    <span class="text-gray-700 italic text-sm">"Rendimenti costanti e trasparenti." -
-                                        Marco R.</span>
-                                </div>
-                                <div
-                                    class="inline-flex items-center px-6 py-3 bg-gray-50 rounded-lg border border-gray-100 shadow-sm max-w-md">
-                                    <span class="text-yellow-400 text-xl mr-2">★★★★★</span>
-                                    <span class="text-gray-700 italic text-sm">"Finalmente posso investire nella mia
-                                        città." - Luca B.</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div id="personale-view" class="view-content hidden">
-            <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-                <h1 class="text-3xl font-bold mb-8">Area Personale</h1>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white shadow rounded-xl p-6">
-                        <h2 class="text-xl font-bold mb-4">I tuoi Dati</h2>
-                        <p><strong>Nome:</strong> Mario Rossi</p>
-                        <p><strong>Email:</strong> mario.rossi@email.com</p>
-                    </div>
-                    <div class="bg-white shadow rounded-xl p-6 border-l-4 border-purple-500">
-                        <h2 class="text-xl font-bold mb-4">Gestione Aziendale</h2>
-                        <p class="mb-4 text-gray-600">Hai un'azienda? Accedi al portale per cercare fondi.</p>
-                        <a href="company.html"
-                            class="block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 w-full text-center">Accedi
-                            al
-                            Portale Azienda</a>
-                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Vista: Blog -->
-        <div id="blog-view" class="view-content hidden">
-            <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-                <h1 class="text-3xl font-bold text-center mb-12">Blog</h1>
-                <div class="grid gap-8 lg:grid-cols-3">
-                    <div class="bg-white shadow rounded-lg overflow-hidden">
-                        <div class="h-48 bg-blue-100 flex items-center justify-center text-blue-500 font-bold">
-                            Articolo
-                            1</div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl">Cos'è il Revenue Sharing?</h3>
-                        </div>
-                    </div>
-                    <div class="bg-white shadow rounded-lg overflow-hidden">
-                        <div class="h-48 bg-green-100 flex items-center justify-center text-green-500 font-bold">
-                            Articolo 2</div>
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl">Settori in crescita 2025</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-
-        <!-- Viste Istituzionali -->
-        <div id="chi-siamo-view" class="view-content hidden">
-            <div class="py-16 text-center">
-                <h1 class="text-3xl font-bold">Chi Siamo</h1>
-            </div>
+        <!-- Footer Links Section (Now static content or external pages) -->
+        <!-- For this iteration, we keep the footer links pointing to anchors or separate pages. 
+                 Since user asked for "buttons below", we can assume the Footer serves this purpose strictly. -->
         </div>
-        <div id="contatti-view" class="view-content hidden">
-            <div class="py-16 text-center">
-                <h1 class="text-3xl font-bold">Contatti</h1>
-            </div>
-        </div>
-
-        <!-- Vista: Privacy -->
-        <div id="privacy-view" class="view-content hidden">
-            <div class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-                <h1 class="text-3xl font-bold text-gray-900 mb-8">Informativa sulla Privacy</h1>
-                <div class="prose prose-blue text-gray-600">
-                    <p class="mb-4">Ultimo aggiornamento: 20 Dicembre 2025</p>
-                    <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-3">1. Introduzione</h2>
-                    <p class="mb-4">Benvenuto su LetsGrow!...</p>
-                    <!-- Contenuto abbreviato per brevità -->
-                </div>
-            </div>
-        </div>
+    </main>
 
     </main>
 
@@ -366,25 +241,23 @@
             <div>
                 <h3 class="uppercase text-gray-500 font-bold text-xs tracking-wider mb-4">Esplora</h3>
                 <ul>
-                    <li class="mb-2"><button onclick="showView('blog-view')" class="hover:text-white">Blog</button></li>
-                    <li class="mb-2"><button onclick="showView('chi-siamo-view')" class="hover:text-white">Chi
-                            Siamo</button></li>
+                    <li class="mb-2"><a href="blog/" class="hover:text-white">Blog</a></li>
+                    <li class="mb-2"><a href="chi-siamo.html" class="hover:text-white">Chi Siamo</a></li>
                 </ul>
             </div>
             <div>
                 <h3 class="uppercase text-gray-500 font-bold text-xs tracking-wider mb-4">Supporto</h3>
                 <ul>
-                    <li class="mb-2"><button onclick="showView('contatti-view')"
-                            class="hover:text-white">Contatti</button></li>
+                    <li class="mb-2"><a href="contatti.html" class="hover:text-white">Contatti</a></li>
                 </ul>
             </div>
             <div>
                 <h3 class="uppercase text-gray-500 font-bold text-xs tracking-wider mb-4">Legale</h3>
                 <ul class="mt-4 space-y-4">
-                    <li><button onclick="showView('privacy-view')"
-                            class="text-base text-gray-400 hover:text-white">Privacy Policy</button></li>
-                    <li><a href="#" class="text-base text-gray-400 hover:text-white">Termini e Condizioni</a></li>
-                    <li><a href="#" class="text-base text-gray-400 hover:text-white">Cookie Policy</a></li>
+                    <li><a href="privacy.html" class="text-base text-gray-400 hover:text-white">Privacy Policy</a></li>
+                    <li><a href="termini.html" class="text-base text-gray-400 hover:text-white">Termini e Condizioni</a>
+                    </li>
+                    <li><a href="cookies.html" class="text-base text-gray-400 hover:text-white">Cookie Policy</a></li>
                 </ul>
             </div>
         </div>

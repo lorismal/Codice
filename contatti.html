@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti - LetsGrow!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-gray-50 antialiased font-inter flex flex-col min-h-screen">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="flex-shrink-0 flex items-center cursor-pointer">
+                    <span class="text-2xl font-bold text-blue-600">Lets<span class="text-gray-900">Grow!</span></span>
+                </a>
+                <a href="index.html" class="text-sm font-medium text-gray-500 hover:text-gray-900">Torna alla Home</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow py-16 px-4">
+        <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+            <h1 class="text-3xl font-bold text-gray-900 mb-6 text-center">Contattaci</h1>
+            <p class="text-gray-600 text-center mb-8">Hai domande? Compila il form sottostante e ti risponderemo entro
+                24 ore.</p>
+
+            <form class="space-y-6"
+                onsubmit="event.preventDefault(); alert('Messaggio inviato con successo!'); window.location.href='index.html';">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Nome e Cognome</label>
+                    <input type="text" id="name" required
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" required
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="subject" class="block text-sm font-medium text-gray-700">Oggetto</label>
+                    <select id="subject"
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        <option>Supporto Investitori</option>
+                        <option>Supporto Aziende</option>
+                        <option>Informazioni Generali</option>
+                        <option>Reclami</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700">Messaggio</label>
+                    <textarea id="message" rows="4" required
+                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea>
+                </div>
+                <button type="submit"
+                    class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Invia Messaggio
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-auto">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-1"><span class="text-2xl font-bold text-blue-400">LetsGrow!</span>
+                <p class="mt-2 text-gray-400 text-sm">Investimenti intelligenti per PMI.</p>
+            </div>
+            <div>
+                <h3 class="uppercase text-gray-500 font-bold text-xs tracking-wider mb-4">Esplora</h3>
+                <ul>
+                    <li class="mb-2"><a href="blog/" class="hover:text-white">Blog</a></li>
+                    <li class="mb-2"><a href="chi-siamo.html" class="hover:text-white">Chi Siamo</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="uppercase text-gray-500 font-bold text-xs tracking-wider mb-4">Supporto</h3>
+                <ul>
+                    <li class="mb-2"><a href="contatti.html" class="hover:text-white">Contatti</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="uppercase text-gray-500 font-bold text-xs tracking-wider mb-4">Legale</h3>
+                <ul class="mt-4 space-y-4">
+                    <li><a href="privacy.html" class="text-base text-gray-400 hover:text-white">Privacy Policy</a></li>
+                    <li><a href="termini.html" class="text-base text-gray-400 hover:text-white">Termini e Condizioni</a>
+                    </li>
+                    <li><a href="cookies.html" class="text-base text-gray-400 hover:text-white">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

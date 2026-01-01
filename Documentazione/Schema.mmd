@@ -1,0 +1,41 @@
+graph TD
+    %% DEFINIZIONE ATTORI
+    User_Inv((👤 Investitore))
+    User_Az((🏢 Azienda))
+    
+    %% FRONTEND - IL SITO
+    %% CORREZIONE QUI SOTTO: Ho aggiunto le virgolette "..." dentro le quadre
+    subgraph SITO_WEB ["LA VETRINA (Quello che si vede)"]
+        Dash_Inv[📱 App Investitore<br>Dashboard & Chat Trading]
+        Dash_Az[💻 Portale Azienda<br>Upload Bilanci]
+    end
+
+    %% BACKEND - IL CERVELLO
+    %% CORREZIONE QUI SOTTO: Anche qui servivano le virgolette per via delle parentesi di (Python & AI)
+    subgraph MOTORE_CENTRALE ["IL CERVELLO (Python & AI)"]
+        Manager[👮 IL GESTORE<br>Coordina tutto]
+        Rating[🧠 IL MATEMATICO<br>Calcola Rating & AI]
+        Ledger[📒 IL NOTAIO<br>Registro Contratti]
+    end
+
+    %% ESTERNI - SICUREZZA
+    subgraph ESTERNI [PARTNER SICURI]
+        Bank[🏦 CASSAFORTE ESTERNA<br>Wallet & Pagamenti]
+        Cloud[☁️ ARCHIVIO<br>Database Dati & PDF]
+    end
+
+    %% COLLEGAMENTI
+    User_Inv -->|Usa| Dash_Inv
+    User_Az -->|Carica PDF| Dash_Az
+    
+    Dash_Inv <-->|Chiede Dati| Manager
+    Dash_Az -->|Invia Documenti| Manager
+
+    Manager -->|Invia Dati per Analisi| Rating
+    Manager <-->|Registra Scambio| Ledger
+    Manager <-->|Ordina Movimento Soldi| Bank
+    Manager <-->|Salva/Legge Dati| Cloud
+
+    %% INTERAZIONI SPECIALI
+    Rating -.->|Dà Voto| Dash_Inv
+    Bank -.->|Conferma Pagamento| Dash_Inv

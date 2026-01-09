@@ -2,16 +2,53 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
+            "name": "Backend: Django",
+            "type": "python",
             "request": "launch",
-            "name": "Launch Index.html in Chrome",
-            "file": "${workspaceFolder}/Index.html"
+            "program": "${workspaceFolder}/backend/manage.py",
+            "args": [
+                "runserver"
+            ],
+            "django": true,
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}/backend",
+            "env": {
+                "PYTHONUNBUFFERED": "1"
+            }
         },
         {
+            "name": "Frontend: Next.js (Server)",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/frontend",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run-script",
+                "dev"
+            ],
+            "console": "integratedTerminal",
+            "serverReadyAction": {
+                "pattern": "- Local:.+(https?://[^\\s]+)",
+                "uriFormat": "%s",
+                "action": "openExternally"
+            }
+        },
+        {
+            "name": "Frontend: Chrome (Client)",
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Current File in Chrome",
-            "file": "${file}"
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/frontend"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Full Stack (Backend + Frontend)",
+            "configurations": [
+                "Backend: Django",
+                "Frontend: Next.js (Server)"
+            ],
+            "stopAll": true
         }
     ]
 }
